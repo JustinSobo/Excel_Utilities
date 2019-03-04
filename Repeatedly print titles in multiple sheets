@@ -1,11 +1,11 @@
-Sub SetAttributes()
-'UpdatebyExtendoffice20170810
-    Dim xSheet As Worksheet
-    Dim xSheetOne As Worksheet
-    Dim xSheets As Sheets
-    Set xSheets = ActiveWorkbook.Worksheets
-    Set xSheetOne = xSheets(1)
-    For Each xSheet In xSheets
-        xSheet.PageSetup.PrintTitleRows = xSheetOne.PageSetup.PrintTitleRows
-    Next xSheet
-End
+Option Explicit
+Sub CopyRowHeader()
+Application.CutCopyMode = True
+Dim Counter As Long, i As Long
+Counter = Sheets.Count
+For i = 1 To Counter
+    Sheets("Sheet1").Cells(1, 1).EntireRow.Copy
+    Sheets(i).Cells(1, 1).PasteSpecial
+Next i  
+Application.CutCopyMode = False
+End Sub
