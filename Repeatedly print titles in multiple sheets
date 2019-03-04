@@ -1,0 +1,11 @@
+Sub SetAttributes()
+'UpdatebyExtendoffice20170810
+    Dim xSheet As Worksheet
+    Dim xSheetOne As Worksheet
+    Dim xSheets As Sheets
+    Set xSheets = ActiveWorkbook.Worksheets
+    Set xSheetOne = xSheets(1)
+    For Each xSheet In xSheets
+        xSheet.PageSetup.PrintTitleRows = xSheetOne.PageSetup.PrintTitleRows
+    Next xSheet
+End
